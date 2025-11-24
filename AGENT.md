@@ -1,6 +1,9 @@
 ## Proyecto agroxAI
 El proyecto tendrá como finalidad la función de subir una imagen en la cual la IA entrenada con imagenes de plagas, arrojará resultado de que plaga puede ser, teniendo un nivel de confianza, mientras que hay un chat para poder responder preguntas de que tiene la planta o una parte de la fruta, como uvas, naranjas, mangos, etc.
 
+## Objetivo General
+Desarrollar una plataforma web que identifique plagas de interés económico en cultivos de la región Ica mediante análisis de imágenes y asistencia conversacional, generando diagnósticos automáticos y recomendaciones técnicas.
+
 ## 1. Funciones clave
 - Recibir una imagen
 - Predecir la plaga
