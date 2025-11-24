@@ -1,0 +1,79 @@
+body {
+  background-color: #121212;
+  /* --bg-deep */
+  /* User requested to remove the image background and have shapes as components.
+     Retaining this if user wants to use it for initial background.
+     The final background will be plain dark grey as per user's last instruction.
+  */
+  background-image: url('../public/img/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #F0F0F0;
+  /* --text-main */
+  font-family: 'Inter', sans-serif;
+}
+
+/* Fallback for Inter font if not loaded */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+/* Neon Glow Effect for Shapes */
+.neon-glow {
+  filter: drop-shadow(0 0 5px #237213) drop-shadow(0 0 10px #D4E632) drop-shadow(0 0 15px #8bdd2e);
+}
+
+/* New technological border animation */
+.techno-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.techno-border::before,
+.techno-border::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #8bdd2e);
+  animation: trace-line-anim 5s linear infinite;
+}
+
+.techno-border::after {
+  animation-delay: -2s;
+}
+
+@keyframes trace-line-anim {
+  0% {
+    top: 0;
+    left: -100px;
+  }
+  25% {
+    top: 0;
+    left: 100%;
+    transform: rotate(0deg);
+  }
+  25.1% {
+    transform: rotate(90deg);
+  }
+  50% {
+    top: 100%;
+    left: 100%;
+    transform: rotate(90deg);
+  }
+  50.1% {
+    transform: rotate(180deg);
+  }
+  75% {
+    top: 100%;
+    left: -100px;
+    transform: rotate(180deg);
+  }
+  75.1% {
+    transform: rotate(270deg);
+  }
+  100% {
+    top: 0;
+    left: -100px;
+    transform: rotate(270deg);
+  }
+}

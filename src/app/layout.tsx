@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import ThemeRegistry from "@/components/layout/ThemeRegistry";
+import Navbar from "@/components/layout/Navbar"; // Import Navbar
+import './globals.css';
 
 export const metadata: Metadata = {
   title: "AgroxAI",
@@ -15,7 +15,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <ThemeRegistry>
+          <Navbar /> {/* Add Navbar here */}
+          {children}
+        </ThemeRegistry>
+      </body>
     </html>
   );
 }
