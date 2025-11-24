@@ -38,3 +38,34 @@ Desarrollar una plataforma web que identifique plagas de interés económico en 
 - Se utilizará MUI: Material UI, libreria de React para los estilos
 - Si hay una idea que tengo para poner animaciones usa Framer Notion
 - Si se requiere crear propios estilos se hará con CSS puro.
+- El modelo de las páginas están en '/model/Page.docx'
+
+## 6. Estructura de carpetas
+/src
+ ├── /app                   # Rutas de la aplicación (App Router)
+ │   ├── /api               # Endpoints API (si no usas Server Actions)
+ │   │   ├── /chat          # Endpoint para el chat
+ │   │   └── /diagnose      # Endpoint para procesar imagen
+ │   ├── /dashboard         # Panel principal (historial)
+ │   ├── /diagnostico       # Vista de resultados
+ │   │   └── [id]           # page.tsx (Detalle del diagnóstico)
+ │   ├── /ficha             # Fichas técnicas
+ │   │   └── [plagaId]      # page.tsx
+ │   ├── /admin             # Panel de administración (protegido)
+ │   ├── layout.tsx         # Layout principal (Navbar, ThemeRegistry)
+ │   └── page.tsx           # Landing / Upload inicial
+ ├── /components            # Componentes React
+ │   ├── /ui                # Átomos (Botones, Inputs, Cards de MUI)
+ │   ├── /upload            # Dropzone, Preview
+ │   ├── /chat              # ChatBubble, ChatInput
+ │   └── /layout            # Navbar, Sidebar, Footer
+ ├── /lib                   # Configuraciones y utilidades
+ │   ├── supabase.ts        # Cliente de Supabase (Singleton)
+ │   ├── openai.ts          # Configuración cliente IA (si usas OpenAI)
+ │   └── utils.ts           # Helpers (formateo de fechas, etc.)
+ ├── /services              # Lógica de negocio (Backend logic)
+ │   ├── aiService.ts       # Función que habla con la IA
+ │   ├── dbService.ts       # Funciones para guardar/leer de Supabase
+ │   └── storageService.ts  # Funciones para subir archivos
+ ├── /types                 # Definiciones TypeScript (DB, Props)
+ └── /theme                 # Configuración de Material UI
