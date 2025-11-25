@@ -6,11 +6,6 @@ import path from 'path';
 import { v4 as uuidv4 } from 'uuid';
 import jpeg from 'jpeg-js';
 
-// 1. Configuración Segura del Backend (Solo una vez)
-if (tf.getBackend() !== 'cpu') {
-    await tf.setBackend('cpu');
-}
-
 async function cargar_modelo_agrox() {
     const modelJsonPath = path.join(process.cwd(), 'public', 'agrox-model', 'model.json');
     const weightsPath = path.join(process.cwd(), 'public', 'agrox-model', 'weights.bin');
@@ -62,7 +57,10 @@ async function guardar_imagen_temporal(fileBuffer: Buffer, fileName: string): Pr
 }
 
 export async function POST(req: NextRequest) {
-    // 2. LIMPIEZA DE MEMORIA (Vital para evitar errores al re-analizar)
+    // 1. Configuración del backend y limpieza de memoria al inicio de la petición
+    if (tf.getBackend() !== 'cpu') {
+        await tf.setBackend('cpu');
+    }
     tf.disposeVariables();
 
     try {

@@ -1,4 +1,4 @@
-// File: C:\Users\gerem\OneDrive\Desktop\PROYECTOIA\AgroxAI\src\app\api\diagnosticar\route.ts
+// File: E:\2025\DESARROLLO_SOFTWARE\PROYECTOS\ENPROCESO\AgroxAI\src\app\api\diagnosticar\route.ts
 import * as entry from '../../../../../src/app/api/diagnosticar/route.js'
 import type { NextRequest } from 'next/server.js'
 

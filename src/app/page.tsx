@@ -1,6 +1,8 @@
 // src/app/page.tsx
 'use client';
 
+import LandingCarousel from '@/components/home/LandingCarousel';
+import Image from 'next/image';
 import { 
   Box, 
   Button, 
@@ -41,7 +43,6 @@ export default function Home() {
           alignItems: 'center',
           justifyContent: 'center',
           // Fondo elegante
-          background: 'linear-gradient(135deg, #0d1f12 0%, #1b5e20 100%)', 
           color: 'white',
           textAlign: 'center',
           px: 2,
@@ -51,7 +52,7 @@ export default function Home() {
         <Container maxWidth="md">
           <Typography 
             variant="overline" 
-            sx={{ letterSpacing: 3, color: '#a5d6a7', fontWeight: 'bold', mb: 2, display: 'block' }}
+            sx={{ letterSpacing: 5, color: '#a5d6a7', fontWeight: 'bold', mb: 2, display: 'block' }}
           >
             TECNOLOGÍA AGRÍCOLA DE PRECISIÓN
           </Typography>
@@ -61,11 +62,11 @@ export default function Home() {
             sx={{ 
               mb: 2, 
               fontSize: { xs: '3rem', md: '5rem' },
-              fontWeight: 900,
+              fontWeight: 300,
               lineHeight: 1.1
             }}
           >
-            Protege tu cosecha con <span style={{ color: '#4caf50' }}>IA</span>
+            Protege tu cosecha con  <span style={{ color: '#ffffffff', fontFamily:'math' }}>AGROX</span> <span style={{ color: '#4caf50' }}>IA</span>
           </Typography>
           
           <Typography 
@@ -94,7 +95,7 @@ export default function Home() {
               transition: 'all 0.3s'
             }}
           >
-            Ingresar al Sistema
+            Iniciar Diagnóstico
           </Button>
         </Container>
       </Box>
@@ -102,44 +103,14 @@ export default function Home() {
       {/* 2. CULTIVOS SOPORTADOS */}
       <Container sx={{ py: 10 }}>
         <Box textAlign="center" mb={8}>
-          <Typography variant="h4" fontWeight="800" color="text.primary">
+          <Typography variant="h4" fontWeight="800" color="white">
             Cultivos Soportados
           </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ mt: 1 }}>
+          <Typography variant="body1" color="grey.400" sx={{ mt: 1 }}>
             Algoritmos entrenados específicamente para la región.
           </Typography>
         </Box>
-
-        <Grid container spacing={4}>
-          {CULTIVOS_LANDING.map((crop) => (
-            <Grid item xs={12} sm={6} md={3} key={crop.name}>
-              <Card 
-                elevation={0} 
-                sx={{ 
-                  height: '100%', 
-                  borderRadius: 4, 
-                  border: '1px solid #eee',
-                  transition: 'all 0.3s',
-                  '&:hover': { 
-                    borderColor: 'success.main', 
-                    transform: 'translateY(-10px)',
-                    boxShadow: '0 15px 30px rgba(0,0,0,0.08)' 
-                  }
-                }}
-              >
-                <CardActionArea sx={{ height: '100%', p: 3 }}>
-                  <Box sx={{ height: 140, display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
-                    <img src={crop.img} alt={crop.name} style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
-                  </Box>
-                  <CardContent sx={{ p: 0, textAlign: 'center' }}>
-                    <Typography gutterBottom variant="h6" fontWeight="bold">{crop.name}</Typography>
-                    <Typography variant="body2" color="text.secondary">{crop.desc}</Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
+        <LandingCarousel cultivos={CULTIVOS_LANDING} />
       </Container>
 
       {/* 3. BENEFICIOS */}

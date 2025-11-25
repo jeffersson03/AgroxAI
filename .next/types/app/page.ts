@@ -1,4 +1,4 @@
-// File: C:\Users\gerem\OneDrive\Desktop\PROYECTOIA\AgroxAI\src\app\page.tsx
+// File: E:\2025\DESARROLLO_SOFTWARE\PROYECTOS\ENPROCESO\AgroxAI\src\app\page.tsx
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

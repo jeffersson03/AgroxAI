@@ -1,10 +1,12 @@
+'use client';
+
 import { Container, Box, Typography, Paper } from '@mui/material';
 import ImageUploader from '@/components/upload/ImageUploader';
 import BiotechIcon from '@mui/icons-material/Biotech';
 
 export default function DiagnosticoPage() {
   return (
-    <Box sx={{ bgcolor: '#f8f9fa', minHeight: '100vh', py: 5 }}>
+    <Box sx={{ bgcolor: '#222222ff', minHeight: '100vh', py: 5 }}>
       <Container maxWidth="lg">
         <Box sx={{ mb: 4, textAlign: 'center' }}>
           <Paper 
@@ -17,7 +19,7 @@ export default function DiagnosticoPage() {
             <BiotechIcon sx={{ mr: 1, fontSize: 20 }} />
             <Typography variant="subtitle2" fontWeight="bold">MÓDULO DE ANÁLISIS</Typography>
           </Paper>
-          <Typography variant="h4" fontWeight="900" color="#1a1a1a">Centro de Diagnóstico</Typography>
+          <Typography variant="h4" fontWeight="900" color="#ffffffff">Centro de Diagnóstico</Typography>
         </Box>
 
         {/* Componente Principal */}

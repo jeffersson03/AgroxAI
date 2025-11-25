@@ -1,28 +1,30 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { 
-  AppBar, 
-  Toolbar, 
-  Typography, 
-  Button, 
-  IconButton, 
-  Drawer, 
-  List, 
-  ListItem, 
-  ListItemButton, 
-  ListItemText, 
-  Box, 
-  Container 
-} from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import AgricultureIcon from '@mui/icons-material/Agriculture';
-
+import { useState } from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Box,
+  Container,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import AgricultureIcon from "@mui/icons-material/Agriculture";
+import Image from "next/image";
+import Link from "next/link";
+import logo from "@/components/ui/shapes/logo.png";
 const NAV_ITEMS = [
-  { label: 'Inicio', href: '#inicio' },
-  { label: 'Beneficios', href: '#beneficios' },
-  { label: 'Cultivos', href: '#cultivos' },
-  { label: 'Diagnóstico', href: '#diagnostico' },
+  { label: "Inicio", href: "#inicio" },
+  { label: "Beneficios", href: "#beneficios" },
+  { label: "Cultivos", href: "#cultivos" },
+  { label: "Diagnóstico", href: "#diagnostico" },
 ];
 
 export default function Navbar() {
@@ -34,14 +36,21 @@ export default function Navbar() {
 
   // Menú para Móvil (Drawer)
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2, color: 'primary.main', fontWeight: 'bold' }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+      <Typography
+        variant="h6"
+        sx={{ my: 2, color: "primary.main", fontWeight: "bold" }}
+      >
         AgroxAI
       </Typography>
       <List>
         {NAV_ITEMS.map((item) => (
           <ListItem key={item.label} disablePadding>
-            <ListItemButton component="a" href={item.href} sx={{ textAlign: 'center' }}>
+            <ListItemButton
+              component="a"
+              href={item.href}
+              sx={{ textAlign: "center" }}
+            >
               <ListItemText primary={item.label} />
             </ListItemButton>
           </ListItem>
@@ -52,32 +61,26 @@ export default function Navbar() {
 
   return (
     <>
-      <AppBar position="sticky" sx={{ bgcolor: 'white', color: 'text.primary', boxShadow: 1 }}>
+      <AppBar
+        position="sticky"
+        sx={{ bgcolor: "black", color: "text.primary", boxShadow: 1 }}
+      >
         <Container maxWidth="lg">
           <Toolbar disableGutters>
-            
-            {/* LOGO (Izquierda) */}
-            <AgricultureIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, color: 'success.main' }} />
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.1rem',
-                color: 'inherit',
-                textDecoration: 'none',
-              }}
-            >
-              AgroxAI
-            </Typography>
+            {/* LOGO MÓVIL (Centro) */}
+            <Link href="/">
+              <Image
+                src={logo}
+                alt="AgroxAI Logo Letras"
+                width={100}
+                height={60}
+                placeholder="blur"
+                style={{ objectFit: "contain", cursor: 'pointer' }}
+              />
+            </Link>
 
             {/* MENÚ HAMBURGUESA (Móvil) */}
-            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton
                 size="large"
                 aria-controls="menu-appbar"
@@ -89,47 +92,46 @@ export default function Navbar() {
               </IconButton>
             </Box>
 
-            {/* LOGO MÓVIL (Centro) */}
-            <AgricultureIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, color: 'success.main' }} />
-            <Typography
-              variant="h5"
-              noWrap
-              component="a"
-              href="/"
+            {/* ENLACES ESCRITORIO (Derecha) */}
+            <Box
               sx={{
-                mr: 2,
-                display: { xs: 'flex', md: 'none' },
                 flexGrow: 1,
-                fontWeight: 700,
-                color: 'inherit',
-                textDecoration: 'none',
+                display: { xs: "none", md: "flex" },
+                justifyContent: "flex-end",
+                gap: 2,
               }}
             >
-              AgroxAI
-            </Typography>
-
-            {/* ENLACES ESCRITORIO (Derecha) */}
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end', gap: 2 }}>
               {NAV_ITEMS.map((item) => (
                 <Button
                   key={item.label}
                   component="a" // Importante: Funciona como enlace
                   href={item.href}
-                  sx={{ 
-                    my: 2, 
-                    color: 'text.primary', 
-                    fontWeight: 'bold',
-                    '&:hover': { color: 'success.main', bgcolor: 'transparent' } 
+                  sx={{
+                    my: 2,
+                    color: "text.primary",
+                    fontWeight: "bold",
+                    transition: 'color 0.3s ease, text-shadow 0.3s ease',
+                    "&:hover": {
+                      color: "#8bdd2e",
+                      bgcolor: "transparent",
+                      textShadow: '0 0 5px #8bdd2e, 0 0 10px #8bdd2e',
+                    },
                   }}
                 >
                   {item.label}
                 </Button>
               ))}
-              <Button 
-                variant="contained" 
-                color="success" 
+              <Button
+                variant="contained"
+                color="success"
                 href="#diagnostico"
-                sx={{ my: 1.5, ml: 2, borderRadius: 50, px: 3, fontWeight: 'bold' }}
+                sx={{
+                  my: 1.5,
+                  ml: 2,
+                  borderRadius: 50,
+                  px: 3,
+                  fontWeight: "bold",
+                }}
               >
                 Probar Ahora
               </Button>
@@ -146,8 +148,8 @@ export default function Navbar() {
           onClose={handleDrawerToggle}
           ModalProps={{ keepMounted: true }} // Mejor rendimiento en móvil
           sx={{
-            display: { xs: 'block', md: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240 },
+            display: { xs: "block", md: "none" },
+            "& .MuiDrawer-paper": { boxSizing: "border-box", width: 240 },
           }}
         >
           {drawer}
