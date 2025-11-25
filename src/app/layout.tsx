@@ -1,19 +1,14 @@
 import type { Metadata } from "next";
-import { Poppins } from 'next/font/google';
+import { Inter } from "next/font/google";
+import "./globals.css";
 import ThemeRegistry from "@/components/layout/ThemeRegistry";
-import Navbar from "@/components/layout/Navbar"; // Import Navbar
-import './globals.css';
+import Navbar from "@/components/layout/Navbar"; // Asegúrate de tener este componente
 
-const poppins = Poppins({
-  weight: ['400', '700'],
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-  display: 'swap',
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AgroxAI",
-  description: "Identificación de plagas con IA",
+  title: "AgroxAI - Diagnóstico Agrícola",
+  description: "Inteligencia artificial para detección de plagas en Ica",
 };
 
 export default function RootLayout({
@@ -22,11 +17,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <body className={poppins.className}>
+    <html lang="es" style={{ scrollBehavior: 'smooth' }}>
+      <body className={inter.className}>
         <ThemeRegistry>
-          <Navbar /> {/* Add Navbar here */}
-          {children}
+          {/* Aquí va la barra de navegación fija */}
+          <Navbar />
+          <main>{children}</main>
         </ThemeRegistry>
       </body>
     </html>
