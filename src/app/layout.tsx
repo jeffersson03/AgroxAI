@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
+import { Poppins } from 'next/font/google';
 import ThemeRegistry from "@/components/layout/ThemeRegistry";
 import Navbar from "@/components/layout/Navbar"; // Import Navbar
 import './globals.css';
+
+const poppins = Poppins({
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "AgroxAI",
@@ -15,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body>
+      <body className={poppins.className}>
         <ThemeRegistry>
           <Navbar /> {/* Add Navbar here */}
           {children}
